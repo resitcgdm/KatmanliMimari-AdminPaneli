@@ -1,0 +1,75 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using Entities.Concrete
+@model List<Product>
+
+<!Doctype html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+      
+            
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th> Quantity</th>
+                    <th>Price</th>
+                    <th>Eklendiği Tarih</th>
+
+                </tr>
+
+            </thead>
+            @foreach (var product in Model)
+            {
+
+               
+                <tbody>
+                    <tr class="table-group-devider">
+                        <td >@product.Id</td>
+                        <td>@product.ProductName</td>
+                        <td>@product.Quantity</td>
+                        <td>@product.Price</td>
+                        
+                        <td>@product.CreateDate</td>
+                        <td>
+                            <a class="btn btn-danger" href="~/Product/UrunSil/@product.Id">Sil</a>
+                            <a class="btn btn-success" href="~/Product/UrunGuncelle/@product.Id">Güncelle</a>
+                           @* <a class="btn btn-danger" asp-controller="Product" asp-action="UrunSil" >Sil</a>
+                            <a class="btn btn-success" asp-controller="Product" asp-action="UrunGuncelle">Güncelle</a>*@
+                        </td>
+
+
+
+
+
+                    </tr>
+                </tbody>
+                
+            }
+        </table>
+        <hr />
+            <div class="">
+                <a class="btn btn-outline-success" asp-action="">Id ile Getir</a>
+            <a class="btn btn-outline-success" asp-action="UrunEkle" asp-controller="Product">Ürün Ekle</a>
+            <a class="btn btn-outline-success" asp-action="UrunSil" asp-controller="Product">Ürün Sil</a>
+            <a class="btn btn-outline-success" asp-action="UrunGuncelle" asp-controller="Product">Ürün Güncelle</a>
+            </div>
+            <hr />
+        </div>
+     
+
+
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using Entities.Concrete
+@model List<Product>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<div class="bg-danger" style="width:150px;height:125px;border-radius:50px;">
+
+    <form method="post>
+
+
+        <label for="input">Id</label>
+        <input type="number" id="input" name="Id" placeholder="Ürün Id'si giriniz" />
+
+
+        <button class= "btn btn-outline-dark"> Getir </button>
+
+
+
+
+        <table class= "table table-bordered" >
+        <thead >
+        <tr>
+        <th> Ürün Adı </th>
+        <th> Ürün Miktarı </th >
+        <th> Ürün Fiyatı </th >
+        <th> Ürünün Eklenme Tarihi</th>
+        </tr>
+        </thead>
+
+            @foreach (var item in Model)
+            {
+            <tbody>
+                <tr>
+            <td> @item.ProductName </td >
+            <td> @item.Quantity </td >
+            <td> @item.Price </td >
+            <td> @item.CreateDate </td >
+                </tr>
+            </tbody>
+                   
+                        }
+        </table >
+
+
+
+
+
+
+
+
+   @*     <script>
+            var input = document.getElementById("input");
+            if (input.value == @Model.Id) {
+                alert(@Model)
+            }
+        </script>*@
+
+
+
+
+        @*< table class= "table table-bordered" >
+        < thead >
+        < tr >
+        < th > Ürün Adı </ th >
+        < th > Ürün Miktarı </ th >
+        < th > Ürün Fiyatı </ th >
+        < th > Ürünün Eklenme Tarihi</th>
+        </tr>
+        </thead>
+        @foreach(var item in Model)
+        {
+        < tbody >
+        < tr >
+        < td > @item.ProductName </ td >
+        < td > @item.Quantity </ td >
+        < td > @item.Price </ td >
+        < td > @item.CreateDate </ td >
+        </ tr >
+        </ tbody >
+        }
+        </ table >
+        *@
+
+
+
+    </form>
+
+
+</div>
